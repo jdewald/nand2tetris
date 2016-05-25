@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Not.hdl
+
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+	// NAND outputs a 0 if both inputs are 1, 0 otherwise
+	// so we just need to pump our input straight into the NAND
+	// to invert it (0 N 0 = 1, 1 N 1 = 0)
+	Nand(a = in, b = in, out = out);
+}
